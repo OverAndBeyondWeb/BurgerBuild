@@ -16,7 +16,7 @@ import BurgerIngredient from './BurgerIngredients/BurgerIngredient';
   if(ingredientsToComponents.length === 0) {
     ingredientsToComponents= <p>Please add some ingredients</p>;
   }
-  
+
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type="bread-top"/>
