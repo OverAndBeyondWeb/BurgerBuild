@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Wrapper from '../../hoc/Wrapper';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const INGREDIENT_PRICES = {
   lettuce: 0.5,
@@ -20,7 +23,16 @@ class BurgerBuilder extends Component {
       meat: 0
     },
     totalPrice: 4,
-    burgerReady: false
+    burgerReady: false,
+    orderSummary: false
+  }
+
+  setOrderSummaryTrue = () => {
+    this.setState({orderSummary: true});
+  }
+
+  setOrderSummaryFalse = () => {
+    this.setState({orderSummary: false});
   }
 
   setBurgerReady(ingredients) {
@@ -69,6 +81,10 @@ class BurgerBuilder extends Component {
 
     return (
       <Wrapper>
+        <Modal show={this.state.orderSummary}>
+          <OrderSummary ingredients={this.state.ingredients}/>
+        </Modal>
+        <Backdrop show={this.state.orderSummary} hideOrder={this.setOrderSummaryFalse}/>
         <Burger ingredients={this.state.ingredients}/>
         <BuildControls 
           addIngredient={this.addIngredient}
@@ -76,6 +92,7 @@ class BurgerBuilder extends Component {
           disabled={disabled}
           price={this.state.totalPrice}
           burgerReady={this.state.burgerReady}
+          revealOrder={this.setOrderSummaryTrue}
         />
       </Wrapper>
     )

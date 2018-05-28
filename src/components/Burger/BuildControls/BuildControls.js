@@ -35,7 +35,8 @@ const buildControls = (props) => {
         />)}
       <button 
         className={classes.OrderButton}
-        disabled={!props.burgerReady}>Order Now</button>
+        disabled={!props.burgerReady}
+        onClick={props.revealOrder}>Order Now</button>
     </div>
   )
 };
