@@ -4,7 +4,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  flex-flow: row;
+  flex-flow: column;
   height: 100%;
 }
 
