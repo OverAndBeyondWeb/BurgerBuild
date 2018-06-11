@@ -7,10 +7,11 @@ const orderSummary = (props) => {
   return (
     <Wrapper>
       <h3>Your Order</h3>
-      <p>ingredients:</p>
+      <p>You have ordered a burger with the following ingredients:</p>
       <ul>
         {ingredients}
       </ul>
+      <div>Total Price: ${props.price.toFixed(2)}</div>
     </Wrapper>
   )
 };

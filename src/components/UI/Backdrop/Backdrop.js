@@ -5,7 +5,7 @@ const backdrop = (props) => {
   return (
     props.show ? <div 
       className={classes.Backdrop}
-      onClick={props.hideOrder}>
+      onClick={props.clicked}>
     </div> : null
   )
 };

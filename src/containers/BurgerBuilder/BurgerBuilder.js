@@ -82,9 +82,12 @@ class BurgerBuilder extends Component {
     return (
       <Wrapper>
         <Modal show={this.state.orderSummary}>
-          <OrderSummary ingredients={this.state.ingredients}/>
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            price={this.state.totalPrice}
+          />
         </Modal>
-        <Backdrop show={this.state.orderSummary} hideOrder={this.setOrderSummaryFalse}/>
+        <Backdrop show={this.state.orderSummary} clicked={this.setOrderSummaryFalse}/>
         <Burger ingredients={this.state.ingredients}/>
         <BuildControls 
           addIngredient={this.addIngredient}
